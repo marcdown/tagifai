@@ -14,6 +14,7 @@
 		49898BEC1BB8CDE300C26F56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49898BEA1BB8CDE300C26F56 /* LaunchScreen.storyboard */; };
 		49898BF71BB8CDE400C26F56 /* TagifaiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898BF61BB8CDE400C26F56 /* TagifaiTests.swift */; };
 		49898C021BB8CDE400C26F56 /* TagifaiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898C011BB8CDE400C26F56 /* TagifaiUITests.swift */; };
+		52E2A20DB910E8C91D6812E1 /* libPods-Tagifai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,9 @@
 		49898BFD1BB8CDE400C26F56 /* TagifaiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TagifaiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49898C011BB8CDE400C26F56 /* TagifaiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagifaiUITests.swift; sourceTree = "<group>"; };
 		49898C031BB8CDE400C26F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tagifai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B91AA9E34202A34EDB079DD0 /* Pods-Tagifai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagifai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tagifai/Pods-Tagifai.debug.xcconfig"; sourceTree = "<group>"; };
+		E16D765A89EE9B8E8995DE91 /* Pods-Tagifai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagifai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tagifai/Pods-Tagifai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E2A20DB910E8C91D6812E1 /* libPods-Tagifai.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		214A4DC2046A4BF46E1DB78A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B91AA9E34202A34EDB079DD0 /* Pods-Tagifai.debug.xcconfig */,
+				E16D765A89EE9B8E8995DE91 /* Pods-Tagifai.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2EA26256F74E5B023616019F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		49898BD51BB8CDE300C26F56 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +103,8 @@
 				49898BF51BB8CDE400C26F56 /* TagifaiTests */,
 				49898C001BB8CDE400C26F56 /* TagifaiUITests */,
 				49898BDF1BB8CDE300C26F56 /* Products */,
+				214A4DC2046A4BF46E1DB78A /* Pods */,
+				2EA26256F74E5B023616019F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49898C061BB8CDE400C26F56 /* Build configuration list for PBXNativeTarget "Tagifai" */;
 			buildPhases = (
+				594C44BFFFB182B8AD81FB30 /* Check Pods Manifest.lock */,
 				49898BDA1BB8CDE300C26F56 /* Sources */,
 				49898BDB1BB8CDE300C26F56 /* Frameworks */,
 				49898BDC1BB8CDE300C26F56 /* Resources */,
+				D122BF68C3C3EAA74BF7CE27 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,6 +276,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		594C44BFFFB182B8AD81FB30 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D122BF68C3C3EAA74BF7CE27 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tagifai/Pods-Tagifai-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		49898BDA1BB8CDE300C26F56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -347,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -385,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -394,6 +453,7 @@
 		};
 		49898C071BB8CDE400C26F56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B91AA9E34202A34EDB079DD0 /* Pods-Tagifai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Tagifai/Info.plist;
@@ -405,6 +465,7 @@
 		};
 		49898C081BB8CDE400C26F56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E16D765A89EE9B8E8995DE91 /* Pods-Tagifai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Tagifai/Info.plist;
