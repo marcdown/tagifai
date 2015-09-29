@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		49898BE21BB8CDE300C26F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898BE11BB8CDE300C26F56 /* AppDelegate.swift */; };
-		49898BE41BB8CDE300C26F56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898BE31BB8CDE300C26F56 /* ViewController.swift */; };
 		49898BE71BB8CDE300C26F56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49898BE51BB8CDE300C26F56 /* Main.storyboard */; };
 		49898BE91BB8CDE300C26F56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49898BE81BB8CDE300C26F56 /* Assets.xcassets */; };
 		49898BEC1BB8CDE300C26F56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49898BEA1BB8CDE300C26F56 /* LaunchScreen.storyboard */; };
 		49898BF71BB8CDE400C26F56 /* TagifaiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898BF61BB8CDE400C26F56 /* TagifaiTests.swift */; };
 		49898C021BB8CDE400C26F56 /* TagifaiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898C011BB8CDE400C26F56 /* TagifaiUITests.swift */; };
+		49898C1B1BBA0E6300C26F56 /* ClarifaiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 49898C1A1BBA0E6300C26F56 /* ClarifaiClient.m */; settings = {ASSET_TAGS = (); }; };
+		49898C1D1BBA0E6D00C26F56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898C1C1BBA0E6D00C26F56 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		52E2A20DB910E8C91D6812E1 /* libPods-Tagifai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +38,6 @@
 /* Begin PBXFileReference section */
 		49898BDE1BB8CDE300C26F56 /* Tagifai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tagifai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49898BE11BB8CDE300C26F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		49898BE31BB8CDE300C26F56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		49898BE61BB8CDE300C26F56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49898BE81BB8CDE300C26F56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49898BEB1BB8CDE300C26F56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,6 +48,10 @@
 		49898BFD1BB8CDE400C26F56 /* TagifaiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TagifaiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49898C011BB8CDE400C26F56 /* TagifaiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagifaiUITests.swift; sourceTree = "<group>"; };
 		49898C031BB8CDE400C26F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49898C111BBA0A8300C26F56 /* Tagifai-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tagifai-Bridging-Header.h"; sourceTree = "<group>"; };
+		49898C191BBA0E6300C26F56 /* ClarifaiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClarifaiClient.h; path = Code/Networking/ClarifaiClient.h; sourceTree = "<group>"; };
+		49898C1A1BBA0E6300C26F56 /* ClarifaiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClarifaiClient.m; path = Code/Networking/ClarifaiClient.m; sourceTree = "<group>"; };
+		49898C1C1BBA0E6D00C26F56 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Code/ViewControllers/ViewController.swift; sourceTree = "<group>"; };
 		94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tagifai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91AA9E34202A34EDB079DD0 /* Pods-Tagifai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagifai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tagifai/Pods-Tagifai.debug.xcconfig"; sourceTree = "<group>"; };
 		E16D765A89EE9B8E8995DE91 /* Pods-Tagifai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagifai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tagifai/Pods-Tagifai.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,12 +125,14 @@
 		49898BE01BB8CDE300C26F56 /* Tagifai */ = {
 			isa = PBXGroup;
 			children = (
+				49898C181BBA0E5100C26F56 /* Networking */,
+				49898C171BBA0DF700C26F56 /* ViewControllers */,
 				49898BE11BB8CDE300C26F56 /* AppDelegate.swift */,
-				49898BE31BB8CDE300C26F56 /* ViewController.swift */,
 				49898BE51BB8CDE300C26F56 /* Main.storyboard */,
 				49898BE81BB8CDE300C26F56 /* Assets.xcassets */,
 				49898BEA1BB8CDE300C26F56 /* LaunchScreen.storyboard */,
 				49898BED1BB8CDE300C26F56 /* Info.plist */,
+				49898C111BBA0A8300C26F56 /* Tagifai-Bridging-Header.h */,
 			);
 			path = Tagifai;
 			sourceTree = "<group>";
@@ -147,6 +153,23 @@
 				49898C031BB8CDE400C26F56 /* Info.plist */,
 			);
 			path = TagifaiUITests;
+			sourceTree = "<group>";
+		};
+		49898C171BBA0DF700C26F56 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				49898C1C1BBA0E6D00C26F56 /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		49898C181BBA0E5100C26F56 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				49898C191BBA0E6300C26F56 /* ClarifaiClient.h */,
+				49898C1A1BBA0E6300C26F56 /* ClarifaiClient.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +236,7 @@
 		49898BD61BB8CDE300C26F56 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "creative mess";
 				TargetAttributes = {
@@ -314,8 +338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49898BE41BB8CDE300C26F56 /* ViewController.swift in Sources */,
+				49898C1D1BBA0E6D00C26F56 /* ViewController.swift in Sources */,
 				49898BE21BB8CDE300C26F56 /* AppDelegate.swift in Sources */,
+				49898C1B1BBA0E6300C26F56 /* ClarifaiClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,10 +481,13 @@
 			baseConfigurationReference = B91AA9E34202A34EDB079DD0 /* Pods-Tagifai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tagifai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativemess.Tagifai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tagifai/Tagifai-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -468,10 +496,12 @@
 			baseConfigurationReference = E16D765A89EE9B8E8995DE91 /* Pods-Tagifai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tagifai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativemess.Tagifai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tagifai/Tagifai-Bridging-Header.h";
 			};
 			name = Release;
 		};
