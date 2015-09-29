@@ -18,11 +18,22 @@
 /** Unique identifier for the image or video, generated based on content. */
 @property (strong, nonatomic, readonly) NSString *documentId;
 
-/** Array of NSStrings, one for each tag. */
-@property (strong, nonatomic, readonly) NSArray<NSString *> *tags;
+/** Array of NSStrings, one for each image tag. */
+@property (strong, nonatomic, readonly) NSArray<NSString *> *imageTags;
 
-/** Parallel array of NSNumbers, representing weights for each of the tags. */
-@property (strong, nonatomic, readonly) NSArray<NSNumber *> *probabilities;
+/** Parallel array of NSNumbers, representing weights for each of the image tags. */
+@property (strong, nonatomic, readonly) NSArray<NSNumber *> *imageProbabilities;
+
+/** Array of NSNumbers, one for each video timestamp. */
+@property (strong, nonatomic, readonly) NSArray<NSNumber *> *videoTimestamps;
+
+/** Array of NSArrays, one for each video timestamp containing an array of 
+ NSStrings, one for each video tag. */
+@property (strong, nonatomic, readonly) NSArray<NSArray *> *videoTags;
+
+/** Array of NSArrays, one for each video timestamp containing a parallel 
+ array of NSNumbers, representing weights for each of the video tags. */
+@property (strong, nonatomic, readonly) NSArray<NSArray *> *videoProbabilities;
 
 /**
  * Array of NSNumbers, representing the content of the image or video in a vector space. Note that
@@ -90,6 +101,17 @@ typedef void (^ClarifaiPredictionCompletion)(NSArray<ClarifaiPredictionResult *>
  */
 - (void)recognizeURLs:(NSArray<NSString *> *)urls
            completion:(ClarifaiRecognitionCompletion)completion;
+
+
+#pragma mark - Video Recognitition
+/**
+ * Runs recognition on a video.
+ *
+ * @param video        NSData containing video to send to the server
+ * @param completion   Invoked when the request completes.
+ */
+- (void)recognizeVideo:(NSData *)data
+            completion:(ClarifaiRecognitionCompletion)completion;
 
 
 #pragma mark - Custom Training (Alpha)

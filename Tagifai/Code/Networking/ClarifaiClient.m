@@ -35,8 +35,18 @@ static NSTimeInterval const kMinTokenLifetime = 60.0;
         NSDictionary *result = dict[@"result"];
         if (result) {
             _embed = result[@"embed"];
-            _tags = result[@"tag"][@"classes"];
-            _probabilities = result[@"tag"][@"probs"];
+            
+            // Video
+            if (result[@"tag"][@"timestamps"]) {
+                _videoTimestamps = result[@"tag"][@"timestamps"];
+                _videoTags = result[@"tag"][@"classes"];
+                _videoProbabilities = result[@"tag"][@"probs"];
+            }
+            // Image
+            else {
+                _imageTags = result[@"tag"][@"classes"];
+                _imageProbabilities = result[@"tag"][@"probs"];
+            }
         }
     }
     return self;
@@ -189,6 +199,16 @@ static NSTimeInterval const kMinTokenLifetime = 60.0;
             [formData appendPartWithFormData:[url dataUsingEncoding:NSUTF8StringEncoding]
                                         name:@"url"];
         }
+    } completion:completion];
+}
+
+- (void)recognizeVideo:(NSData *)data
+            completion:(ClarifaiRecognitionCompletion)completion {
+    [self recognizeWithBodyBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:data
+                                    name:@"encoded_data"
+                                fileName:@"video.mp4"
+                                mimeType:@"video/mp4"];
     } completion:completion];
 }
 
