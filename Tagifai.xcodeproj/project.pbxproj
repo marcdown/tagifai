@@ -14,7 +14,10 @@
 		49898BF71BB8CDE400C26F56 /* TagifaiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898BF61BB8CDE400C26F56 /* TagifaiTests.swift */; };
 		49898C021BB8CDE400C26F56 /* TagifaiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898C011BB8CDE400C26F56 /* TagifaiUITests.swift */; };
 		49898C1B1BBA0E6300C26F56 /* ClarifaiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 49898C1A1BBA0E6300C26F56 /* ClarifaiClient.m */; settings = {ASSET_TAGS = (); }; };
-		49898C1D1BBA0E6D00C26F56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898C1C1BBA0E6D00C26F56 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		49898C3B1BBB7D4800C26F56 /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898C3A1BBB7D4800C26F56 /* PlaybackViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		49898C3F1BBB7D7600C26F56 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898C3E1BBB7D7600C26F56 /* TagCell.swift */; settings = {ASSET_TAGS = (); }; };
+		49898C411BBB899C00C26F56 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49898C401BBB899C00C26F56 /* AVKit.framework */; };
+		49898C421BBB8B2E00C26F56 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49898C2A1BBB5E5B00C26F56 /* AVFoundation.framework */; };
 		52E2A20DB910E8C91D6812E1 /* libPods-Tagifai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +54,10 @@
 		49898C111BBA0A8300C26F56 /* Tagifai-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tagifai-Bridging-Header.h"; sourceTree = "<group>"; };
 		49898C191BBA0E6300C26F56 /* ClarifaiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClarifaiClient.h; path = Code/Networking/ClarifaiClient.h; sourceTree = "<group>"; };
 		49898C1A1BBA0E6300C26F56 /* ClarifaiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClarifaiClient.m; path = Code/Networking/ClarifaiClient.m; sourceTree = "<group>"; };
-		49898C1C1BBA0E6D00C26F56 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Code/ViewControllers/ViewController.swift; sourceTree = "<group>"; };
+		49898C2A1BBB5E5B00C26F56 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		49898C3A1BBB7D4800C26F56 /* PlaybackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaybackViewController.swift; path = Code/Views/UIViewController/PlaybackViewController.swift; sourceTree = "<group>"; };
+		49898C3E1BBB7D7600C26F56 /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = Code/Views/UITableViewCell/TagCell.swift; sourceTree = "<group>"; };
+		49898C401BBB899C00C26F56 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tagifai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91AA9E34202A34EDB079DD0 /* Pods-Tagifai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagifai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tagifai/Pods-Tagifai.debug.xcconfig"; sourceTree = "<group>"; };
 		E16D765A89EE9B8E8995DE91 /* Pods-Tagifai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagifai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tagifai/Pods-Tagifai.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49898C421BBB8B2E00C26F56 /* AVFoundation.framework in Frameworks */,
+				49898C411BBB899C00C26F56 /* AVKit.framework in Frameworks */,
 				52E2A20DB910E8C91D6812E1 /* libPods-Tagifai.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +103,8 @@
 		2EA26256F74E5B023616019F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49898C401BBB899C00C26F56 /* AVKit.framework */,
+				49898C2A1BBB5E5B00C26F56 /* AVFoundation.framework */,
 				94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */,
 			);
 			name = Frameworks;
@@ -126,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				49898C181BBA0E5100C26F56 /* Networking */,
-				49898C171BBA0DF700C26F56 /* ViewControllers */,
+				49898C391BBB7D0800C26F56 /* Views */,
 				49898BE11BB8CDE300C26F56 /* AppDelegate.swift */,
 				49898BE51BB8CDE300C26F56 /* Main.storyboard */,
 				49898BE81BB8CDE300C26F56 /* Assets.xcassets */,
@@ -155,12 +165,12 @@
 			path = TagifaiUITests;
 			sourceTree = "<group>";
 		};
-		49898C171BBA0DF700C26F56 /* ViewControllers */ = {
+		49898C171BBA0DF700C26F56 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
-				49898C1C1BBA0E6D00C26F56 /* ViewController.swift */,
+				49898C3A1BBB7D4800C26F56 /* PlaybackViewController.swift */,
 			);
-			name = ViewControllers;
+			name = UIViewController;
 			sourceTree = "<group>";
 		};
 		49898C181BBA0E5100C26F56 /* Networking */ = {
@@ -170,6 +180,23 @@
 				49898C1A1BBA0E6300C26F56 /* ClarifaiClient.m */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		49898C341BBB7A6600C26F56 /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				49898C3E1BBB7D7600C26F56 /* TagCell.swift */,
+			);
+			name = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		49898C391BBB7D0800C26F56 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49898C341BBB7A6600C26F56 /* UITableViewCell */,
+				49898C171BBA0DF700C26F56 /* UIViewController */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,7 +365,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49898C1D1BBA0E6D00C26F56 /* ViewController.swift in Sources */,
+				49898C3F1BBB7D7600C26F56 /* TagCell.swift in Sources */,
+				49898C3B1BBB7D4800C26F56 /* PlaybackViewController.swift in Sources */,
 				49898BE21BB8CDE300C26F56 /* AppDelegate.swift in Sources */,
 				49898C1B1BBA0E6300C26F56 /* ClarifaiClient.m in Sources */,
 			);
@@ -431,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -469,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
