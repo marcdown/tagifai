@@ -64,12 +64,35 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
             imagePicker.mediaTypes = [kUTTypeMovie as String]
             imagePicker.delegate = self
             
-            self.presentViewController(imagePicker, animated: false, completion: {
-                self.reset()
-            })
+            self.presentViewController(imagePicker, animated: false, completion: {})
         } else {
             print("Camera not available.")
         }
+    }
+    
+    func recognizeVideo(url: NSURL) {
+        let data = NSData(contentsOfURL: url)
+        let client = ClarifaiClient()
+        client.recognizeVideo(data) { (result: [ClarifaiResult]!, error: NSError!) -> Void in
+            if (error != nil) {
+                print("error: \(error.localizedDescription)")
+                return
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.loadVideo(url, result: result[0])
+            })
+        }
+    }
+    
+    func loadVideo(url: NSURL, result: ClarifaiResult) {
+        // Load tags/probabilities from the first second of video
+        self.tags.append(result.videoTags[0] as! [String])
+        self.probs.append(result.videoProbabilities[0] as! [Double])
+        self.tableView?.reloadData()
+        
+        self.avPlayerController!.player = AVPlayer(URL: url)
+        self.avPlayerController!.player!.play()
     }
     
     func reset() {
@@ -96,8 +119,11 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
     // MARK: UIImagePickerControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String : AnyObject]) {
+        // Reset playback view
+        self.reset()
         
-        let videoUrl = info[UIImagePickerControllerMediaURL] as! NSURL!
+        let videoUrl = info[UIImagePickerControllerMediaURL] as! NSURL
+        self.recognizeVideo(videoUrl)
         UISaveVideoAtPathToSavedPhotosAlbum(videoUrl.relativePath!, self, nil, nil)
         
         self.dismissViewControllerAnimated(false, completion: {})
