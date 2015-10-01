@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14372A861BBDF77000F22149 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 14372A851BBDF77000F22149 /* data.json */; settings = {ASSET_TAGS = (); }; };
-		14372A881BBDF7E300F22149 /* landscape.mov in Resources */ = {isa = PBXBuildFile; fileRef = 14372A871BBDF7E300F22149 /* landscape.mov */; settings = {ASSET_TAGS = (); }; };
 		49898BE21BB8CDE300C26F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898BE11BB8CDE300C26F56 /* AppDelegate.swift */; };
 		49898BE71BB8CDE300C26F56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49898BE51BB8CDE300C26F56 /* Main.storyboard */; };
 		49898BE91BB8CDE300C26F56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49898BE81BB8CDE300C26F56 /* Assets.xcassets */; };
@@ -41,8 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		14372A851BBDF77000F22149 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = ../../../Desktop/data.json; sourceTree = "<group>"; };
-		14372A871BBDF7E300F22149 /* landscape.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = landscape.mov; path = ../../../Desktop/landscape.mov; sourceTree = "<group>"; };
 		49898BDE1BB8CDE300C26F56 /* Tagifai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tagifai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49898BE11BB8CDE300C26F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49898BE61BB8CDE300C26F56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,8 +143,6 @@
 				49898BEA1BB8CDE300C26F56 /* LaunchScreen.storyboard */,
 				49898BED1BB8CDE300C26F56 /* Info.plist */,
 				49898C111BBA0A8300C26F56 /* Tagifai-Bridging-Header.h */,
-				14372A871BBDF7E300F22149 /* landscape.mov */,
-				14372A851BBDF77000F22149 /* data.json */,
 			);
 			path = Tagifai;
 			sourceTree = "<group>";
@@ -314,8 +308,6 @@
 				49898BEC1BB8CDE300C26F56 /* LaunchScreen.storyboard in Resources */,
 				49898BE91BB8CDE300C26F56 /* Assets.xcassets in Resources */,
 				49898BE71BB8CDE300C26F56 /* Main.storyboard in Resources */,
-				14372A861BBDF77000F22149 /* data.json in Resources */,
-				14372A881BBDF7E300F22149 /* landscape.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
