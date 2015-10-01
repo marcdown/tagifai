@@ -32,6 +32,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
         self.view.addSubview(self.avPlayerController!.view)
         
         self.tableView = UITableView()
+        self.tableView?.rowHeight = 44
         self.tableView?.registerClass(TagCell.classForCoder(), forCellReuseIdentifier: "TagCell")
         self.tableView?.dataSource = self
         self.tableView!.translatesAutoresizingMaskIntoConstraints = false;
