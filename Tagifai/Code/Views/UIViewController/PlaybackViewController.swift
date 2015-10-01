@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MediaPlayer
+import MobileCoreServices
 import AVFoundation
 import AVKit
 
-class PlaybackViewController: UIViewController, UITableViewDataSource, AVPlayerViewControllerDelegate {
+class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var avPlayerController: AVPlayerViewController?
     var tableView: UITableView?
@@ -25,7 +27,6 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, AVPlayerV
         super.viewDidLoad()
         
         self.avPlayerController = AVPlayerViewController()
-        self.avPlayerController?.delegate = self;
         self.avPlayerController!.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.avPlayerController!.view)
         
@@ -34,6 +35,8 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, AVPlayerV
         self.tableView?.dataSource = self
         self.tableView!.translatesAutoresizingMaskIntoConstraints = false;
         self.view.addSubview(self.tableView!)
+        
+        self.captureVideo(self)
     }
     
     override func updateViewConstraints() {
@@ -54,6 +57,28 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, AVPlayerV
         super.updateViewConstraints()
     }
     
+    @IBAction func captureVideo(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .Camera;
+            imagePicker.mediaTypes = [kUTTypeMovie as String]
+            imagePicker.delegate = self
+            
+            self.presentViewController(imagePicker, animated: false, completion: {
+                self.reset()
+            })
+        } else {
+            print("Camera not available.")
+        }
+    }
+    
+    func reset() {
+        self.tags = Array<Array<String>>()
+        self.probs = Array<Array<Double>>()
+        self.tableView?.reloadData()
+        self.avPlayerController!.player = nil
+    }
+    
     // MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,6 +91,16 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, AVPlayerV
         cell.probabilityLbl!.text = NSString(format: "%.01f", probs[0][indexPath.row] * 100) as String
         
         return cell
+    }
+    
+    // MARK: UIImagePickerControllerDelegate
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String : AnyObject]) {
+        
+        let videoUrl = info[UIImagePickerControllerMediaURL] as! NSURL!
+        UISaveVideoAtPathToSavedPhotosAlbum(videoUrl.relativePath!, self, nil, nil)
+        
+        self.dismissViewControllerAnimated(false, completion: {})
     }
 }
 
