@@ -20,6 +20,8 @@ class TagCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        self.selectionStyle = .None
+        
         self.titleLbl = UILabel()
         self.titleLbl?.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.titleLbl!)

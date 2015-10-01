@@ -111,7 +111,8 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TagCell", forIndexPath: indexPath) as! TagCell
         cell.titleLbl!.text = tags[0][indexPath.row]
-        cell.probabilityLbl!.text = NSString(format: "%.01f", probs[0][indexPath.row] * 100) as String
+        let probPercent = NSString(format: "%.1f", probs[0][indexPath.row] * 100)
+        cell.probabilityLbl!.text = "\(probPercent)%"
         
         return cell
     }
