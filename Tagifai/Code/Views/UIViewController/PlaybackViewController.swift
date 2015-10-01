@@ -16,8 +16,9 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
     
     var avPlayerController: AVPlayerViewController?
     var tableView: UITableView?
-    var tags = Array<Array<String>>()
-    var probs = Array<Array<Double>>()
+    var result: ClarifaiResult?
+    var tags = Array<String>()
+    var probs = Array<Double>()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -80,24 +81,28 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
             }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.loadVideo(url, result: result[0])
+                self.result = result[0]
+                self.loadVideo(url)
             })
         }
     }
     
-    func loadVideo(url: NSURL, result: ClarifaiResult) {
-        // Load tags/probabilities from the first second of video
-        self.tags.append(result.videoTags[0] as! [String])
-        self.probs.append(result.videoProbabilities[0] as! [Double])
-        self.tableView?.reloadData()
-        
+    func loadVideo(url: NSURL) {
         self.avPlayerController!.player = AVPlayer(URL: url)
+        self.avPlayerController!.player?.addPeriodicTimeObserverForInterval(CMTimeMake(1, 1) , queue: dispatch_get_main_queue(), usingBlock: { (time: CMTime) -> Void in
+            if (self.result != nil) {
+                let seconds: Int = Int(CMTimeGetSeconds(time))
+                self.tags = self.result?.videoTags[seconds] as! [String]
+                self.probs = self.result?.videoProbabilities[seconds] as! [Double]
+                self.tableView?.reloadData()
+            }
+        })
         self.avPlayerController!.player!.play()
     }
     
     func reset() {
-        self.tags = Array<Array<String>>()
-        self.probs = Array<Array<Double>>()
+        self.tags = [String]()
+        self.probs = [Double]()
         self.tableView?.reloadData()
         self.avPlayerController!.player = nil
     }
@@ -105,13 +110,13 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
     // MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tags.count > 0 ? tags[0].count : 0
+        return tags.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TagCell", forIndexPath: indexPath) as! TagCell
-        cell.titleLbl!.text = tags[0][indexPath.row]
-        let probPercent = NSString(format: "%.1f", probs[0][indexPath.row] * 100)
+        cell.titleLbl!.text = tags[indexPath.row]
+        let probPercent = NSString(format: "%.1f", probs[indexPath.row] * 100)
         cell.probabilityLbl!.text = "\(probPercent)%"
         
         return cell
