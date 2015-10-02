@@ -118,9 +118,9 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TagCell", forIndexPath: indexPath) as! TagCell
-        cell.titleLbl!.text = self.currentVideoTimestamp?.videoTags[indexPath.row].name
-        let probPercent = NSString(format: "%.1f", (self.currentVideoTimestamp?.videoTags[indexPath.row].probability)! * 100)
-        cell.probabilityLbl!.text = "\(probPercent)%"
+        let videoTagViewModel = VideoTagViewModel(model: (self.currentVideoTimestamp?.videoTags[indexPath.row])!)
+        cell.titleLbl!.text = videoTagViewModel.displayName
+        cell.probabilityLbl!.text = videoTagViewModel.displayProbability
         
         return cell
     }

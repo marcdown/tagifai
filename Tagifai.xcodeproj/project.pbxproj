@@ -20,6 +20,7 @@
 		49898C421BBB8B2E00C26F56 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49898C2A1BBB5E5B00C26F56 /* AVFoundation.framework */; };
 		49986FD21BBE0FFB00DC490E /* VideoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49986FD01BBE0FFB00DC490E /* VideoTag.swift */; settings = {ASSET_TAGS = (); }; };
 		49986FD31BBE0FFB00DC490E /* VideoTimestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49986FD11BBE0FFB00DC490E /* VideoTimestamp.swift */; settings = {ASSET_TAGS = (); }; };
+		49986FD61BBE106500DC490E /* VideoTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49986FD51BBE106500DC490E /* VideoTagViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		52E2A20DB910E8C91D6812E1 /* libPods-Tagifai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		49898C401BBB899C00C26F56 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		49986FD01BBE0FFB00DC490E /* VideoTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoTag.swift; path = Code/Models/VideoTag.swift; sourceTree = "<group>"; };
 		49986FD11BBE0FFB00DC490E /* VideoTimestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoTimestamp.swift; path = Code/Models/VideoTimestamp.swift; sourceTree = "<group>"; };
+		49986FD51BBE106500DC490E /* VideoTagViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoTagViewModel.swift; path = Code/ViewModels/VideoTagViewModel.swift; sourceTree = "<group>"; };
 		94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tagifai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91AA9E34202A34EDB079DD0 /* Pods-Tagifai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagifai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tagifai/Pods-Tagifai.debug.xcconfig"; sourceTree = "<group>"; };
 		E16D765A89EE9B8E8995DE91 /* Pods-Tagifai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagifai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tagifai/Pods-Tagifai.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				49986FCB1BBE003300DC490E /* Models */,
+				49986FD41BBE102B00DC490E /* ViewModels */,
 				49898C181BBA0E5100C26F56 /* Networking */,
 				49898C391BBB7D0800C26F56 /* Views */,
 				49898BE11BB8CDE300C26F56 /* AppDelegate.swift */,
@@ -211,6 +214,14 @@
 				49986FD11BBE0FFB00DC490E /* VideoTimestamp.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		49986FD41BBE102B00DC490E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				49986FD51BBE106500DC490E /* VideoTagViewModel.swift */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +397,7 @@
 				49898BE21BB8CDE300C26F56 /* AppDelegate.swift in Sources */,
 				49986FD21BBE0FFB00DC490E /* VideoTag.swift in Sources */,
 				49898C1B1BBA0E6300C26F56 /* ClarifaiClient.m in Sources */,
+				49986FD61BBE106500DC490E /* VideoTagViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
