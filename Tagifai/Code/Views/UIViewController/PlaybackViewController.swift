@@ -37,7 +37,10 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
         self.view.addSubview(self.tableView!)
         
         // Slight delay to allow vc to fully load before presenting the modal
-        self.performSelector("captureVideo:", withObject: self, afterDelay: 0.1)
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            self.captureVideo(nil)
+        }
     }
     
     override func updateViewConstraints() {
