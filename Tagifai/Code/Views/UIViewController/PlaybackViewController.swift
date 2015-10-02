@@ -11,6 +11,7 @@ import MediaPlayer
 import MobileCoreServices
 import AVFoundation
 import AVKit
+import PKHUD
 
 class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -74,14 +75,19 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
     func recognizeVideo(url: NSURL) {
         let data = NSData(contentsOfURL: url)
         let client = ClarifaiClient()
+        PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
+        PKHUD.sharedHUD.show()
         client.recognizeVideo(data) { (result: [ClarifaiResult]!, error: NSError!) -> Void in
             if (error != nil) {
-                print("error: \(error.localizedDescription)")
-                self.dismissViewControllerAnimated(false, completion: {})
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    PKHUD.sharedHUD.contentView = PKHUDErrorView()
+                    PKHUD.sharedHUD.hide(afterDelay: 2)
+                })
                 return
             }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                PKHUD.sharedHUD.hide()
                 for (var i = 0; i < result[0].videoTimestamps.count; i++) {
                     let videoTimestamp = VideoTimestamp(timestamp: result[0].videoTimestamps[i] as NSNumber, tags: result[0].videoTags[i] as! [String], probabilities: result[0].videoProbabilities[i] as! [Double])
                     self.videoTimestamps.append(videoTimestamp)
