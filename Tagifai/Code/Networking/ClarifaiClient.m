@@ -4,7 +4,7 @@
 //
 
 #import "ClarifaiClient.h"
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 
 
 #define SafeRunBlock(block, ...) block ? block(__VA_ARGS__) : nil
