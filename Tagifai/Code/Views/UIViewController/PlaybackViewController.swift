@@ -112,6 +112,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
     
     func reset() {
         self.videoTimestamps = [VideoTimestamp]()
+        self.currentVideoTimestamp = nil
         self.tableView?.reloadData()
         self.avPlayerController!.player = nil
     }
