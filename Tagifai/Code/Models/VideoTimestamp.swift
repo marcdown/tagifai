@@ -14,7 +14,7 @@ class VideoTimestamp: NSObject {
         self.timestamp = timestamp
         self.videoTags = [VideoTag]()
         
-        for (var i = 0; i < tags.count; i++) {
+        for var i = 0; i < tags.count; i++ {
             let videoTag = VideoTag(name: tags[i], probability: probabilities[i])
             self.videoTags.append(videoTag)
         }

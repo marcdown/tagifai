@@ -36,7 +36,8 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
         self.tableView!.translatesAutoresizingMaskIntoConstraints = false;
         self.view.addSubview(self.tableView!)
         
-        self.captureVideo(self)
+        // Slight delay to allow vc to fully load before presenting the modal
+        self.performSelector("captureVideo:", withObject: self, afterDelay: 0.1)
     }
     
     override func updateViewConstraints() {
@@ -57,8 +58,8 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
         super.updateViewConstraints()
     }
     
-    @IBAction func captureVideo(sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+    @IBAction func captureVideo(sender: AnyObject?) {
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             let imagePicker = UIImagePickerController()
             imagePicker.sourceType = .Camera;
             imagePicker.mediaTypes = [kUTTypeMovie as String]
@@ -76,7 +77,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
         PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
         PKHUD.sharedHUD.show()
         client.recognizeVideo(data) { (result: [ClarifaiResult]!, error: NSError!) -> Void in
-            if (error != nil) {
+            if error != nil {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     PKHUD.sharedHUD.contentView = PKHUDErrorView()
                     PKHUD.sharedHUD.hide(afterDelay: 2)
