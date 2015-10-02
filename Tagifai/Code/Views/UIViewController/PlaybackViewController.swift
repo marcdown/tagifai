@@ -16,9 +16,8 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
     
     var avPlayerController: AVPlayerViewController?
     var tableView: UITableView?
-    var result: ClarifaiResult?
-    var tags = Array<String>()
-    var probs = Array<Double>()
+    var videoTimestamps = [VideoTimestamp]()
+    var currentVideoTimestamp: VideoTimestamp?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -78,11 +77,18 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
         client.recognizeVideo(data) { (result: [ClarifaiResult]!, error: NSError!) -> Void in
             if (error != nil) {
                 print("error: \(error.localizedDescription)")
+                self.dismissViewControllerAnimated(false, completion: {})
                 return
             }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.result = result[0]
+                for (var i = 0; i < result[0].videoTimestamps.count; i++) {
+                    let videoTimestamp = VideoTimestamp(timestamp: result[0].videoTimestamps[i] as NSNumber, tags: result[0].videoTags[i] as! [String], probabilities: result[0].videoProbabilities[i] as! [Double])
+                    self.videoTimestamps.append(videoTimestamp)
+                }
+                // Sort timestamps by playback time
+                self.videoTimestamps.sortInPlace({Float($0.timestamp) < Float($1.timestamp)})
+                
                 self.loadVideo(url)
             })
         }
@@ -91,19 +97,15 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
     func loadVideo(url: NSURL) {
         self.avPlayerController!.player = AVPlayer(URL: url)
         self.avPlayerController!.player?.addPeriodicTimeObserverForInterval(CMTimeMake(1, 1) , queue: dispatch_get_main_queue(), usingBlock: { (time: CMTime) -> Void in
-            if (self.result != nil) {
-                let seconds: Int = Int(CMTimeGetSeconds(time))
-                self.tags = self.result?.videoTags[seconds] as! [String]
-                self.probs = self.result?.videoProbabilities[seconds] as! [Double]
-                self.tableView?.reloadData()
-            }
+            let seconds: Int = Int(CMTimeGetSeconds(time))
+            self.currentVideoTimestamp = self.videoTimestamps[seconds]
+            self.tableView?.reloadData()
         })
         self.avPlayerController!.player!.play()
     }
     
     func reset() {
-        self.tags = [String]()
-        self.probs = [Double]()
+        self.videoTimestamps = [VideoTimestamp]()
         self.tableView?.reloadData()
         self.avPlayerController!.player = nil
     }
@@ -111,13 +113,13 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePi
     // MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tags.count
+        return (self.currentVideoTimestamp != nil) ? (self.currentVideoTimestamp?.videoTags.count)! : 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TagCell", forIndexPath: indexPath) as! TagCell
-        cell.titleLbl!.text = tags[indexPath.row]
-        let probPercent = NSString(format: "%.1f", probs[indexPath.row] * 100)
+        cell.titleLbl!.text = self.currentVideoTimestamp?.videoTags[indexPath.row].name
+        let probPercent = NSString(format: "%.1f", (self.currentVideoTimestamp?.videoTags[indexPath.row].probability)! * 100)
         cell.probabilityLbl!.text = "\(probPercent)%"
         
         return cell

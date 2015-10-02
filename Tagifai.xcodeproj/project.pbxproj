@@ -18,6 +18,8 @@
 		49898C3F1BBB7D7600C26F56 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49898C3E1BBB7D7600C26F56 /* TagCell.swift */; settings = {ASSET_TAGS = (); }; };
 		49898C411BBB899C00C26F56 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49898C401BBB899C00C26F56 /* AVKit.framework */; };
 		49898C421BBB8B2E00C26F56 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49898C2A1BBB5E5B00C26F56 /* AVFoundation.framework */; };
+		49986FCD1BBE006600DC490E /* VideoTimestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49986FCC1BBE006600DC490E /* VideoTimestamp.swift */; settings = {ASSET_TAGS = (); }; };
+		49986FCF1BBE015000DC490E /* VideoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49986FCE1BBE015000DC490E /* VideoTag.swift */; settings = {ASSET_TAGS = (); }; };
 		52E2A20DB910E8C91D6812E1 /* libPods-Tagifai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		49898C3A1BBB7D4800C26F56 /* PlaybackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaybackViewController.swift; path = Code/Views/UIViewController/PlaybackViewController.swift; sourceTree = "<group>"; };
 		49898C3E1BBB7D7600C26F56 /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = Code/Views/UITableViewCell/TagCell.swift; sourceTree = "<group>"; };
 		49898C401BBB899C00C26F56 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		49986FCC1BBE006600DC490E /* VideoTimestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTimestamp.swift; sourceTree = "<group>"; };
+		49986FCE1BBE015000DC490E /* VideoTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTag.swift; sourceTree = "<group>"; };
 		94A7146209A87CDD1CF9ED40 /* libPods-Tagifai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tagifai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91AA9E34202A34EDB079DD0 /* Pods-Tagifai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagifai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tagifai/Pods-Tagifai.debug.xcconfig"; sourceTree = "<group>"; };
 		E16D765A89EE9B8E8995DE91 /* Pods-Tagifai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagifai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tagifai/Pods-Tagifai.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		49898BE01BB8CDE300C26F56 /* Tagifai */ = {
 			isa = PBXGroup;
 			children = (
+				49986FCB1BBE003300DC490E /* Models */,
 				49898C181BBA0E5100C26F56 /* Networking */,
 				49898C391BBB7D0800C26F56 /* Views */,
 				49898BE11BB8CDE300C26F56 /* AppDelegate.swift */,
@@ -197,6 +202,15 @@
 				49898C171BBA0DF700C26F56 /* UIViewController */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		49986FCB1BBE003300DC490E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49986FCE1BBE015000DC490E /* VideoTag.swift */,
+				49986FCC1BBE006600DC490E /* VideoTimestamp.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +283,7 @@
 				TargetAttributes = {
 					49898BDD1BB8CDE300C26F56 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = P2U96TQV3D;
 					};
 					49898BF11BB8CDE400C26F56 = {
 						CreatedOnToolsVersion = 7.0;
@@ -365,7 +380,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49986FCD1BBE006600DC490E /* VideoTimestamp.swift in Sources */,
 				49898C3F1BBB7D7600C26F56 /* TagCell.swift in Sources */,
+				49986FCF1BBE015000DC490E /* VideoTag.swift in Sources */,
 				49898C3B1BBB7D4800C26F56 /* PlaybackViewController.swift in Sources */,
 				49898BE21BB8CDE300C26F56 /* AppDelegate.swift in Sources */,
 				49898C1B1BBA0E6300C26F56 /* ClarifaiClient.m in Sources */,
@@ -510,10 +527,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tagifai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativemess.Tagifai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tagifai/Tagifai-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -525,10 +545,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tagifai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativemess.Tagifai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tagifai/Tagifai-Bridging-Header.h";
 			};
 			name = Release;
