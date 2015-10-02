@@ -6,11 +6,9 @@
 //  Copyright © 2015 creative mess. All rights reserved.
 //
 
-import UIKit
-import MediaPlayer
-import MobileCoreServices
 import AVFoundation
 import AVKit
+import MobileCoreServices
 import PKHUD
 
 class PlaybackViewController: UIViewController, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
