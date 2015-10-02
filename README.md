@@ -3,7 +3,7 @@ Video tagging using [Clarifai's API](https://developer.clarifai.com).
 
 
 ## API Keys
-This project uses Alarifai's public keys made available in their [starter project](https://github.com/Clarifai/clarifai-ios-starter). You can create your own keys [here](https://developer.clarifai.com/applications).
+This project uses Clarifai's test keys made available in their [starter project](https://github.com/Clarifai/clarifai-ios-starter). You can create your own keys [here](https://developer.clarifai.com/applications).
 
 
 ## Building and Running
